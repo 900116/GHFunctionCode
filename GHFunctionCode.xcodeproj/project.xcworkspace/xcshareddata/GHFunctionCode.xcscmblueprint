@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "2C9EF8BED00784925176FFA236038F2AFB5B2F64",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "BE5F78D51EA4D2BFE7CBE55AF3D94A0B4477FC18" : 9223372036854775807,
+    "2C9EF8BED00784925176FFA236038F2AFB5B2F64" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "0899B4A0-6108-471B-8291-EBE30F710BF9",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "BE5F78D51EA4D2BFE7CBE55AF3D94A0B4477FC18" : "py_study\/",
+    "2C9EF8BED00784925176FFA236038F2AFB5B2F64" : "dev\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "GHFunctionCode",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "GHFunctionCode\/GHFunctionCode.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/900116\/GHBlockTableView.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "2C9EF8BED00784925176FFA236038F2AFB5B2F64"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/900116\/py_study.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "BE5F78D51EA4D2BFE7CBE55AF3D94A0B4477FC18"
+    }
+  ]
+}
