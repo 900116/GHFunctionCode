@@ -16,3 +16,4 @@ typedef NSMutableArray* mlist_t;
 typedef NSMutableDictionary* mdict_t;
 typedef NSMutableString* mstr_t;
 typedef NSNumber* number_t;
+typedef NSObject* obj_t;

@@ -64,7 +64,7 @@
     if (self.count == 1) {
         return self[0];
     }
-    NSObject* sum = self[0];
+    obj_t sum = self[0];
     for (int i = 1; i < self.count; ++i) {
         sum = sum.add(self[i]);
     }

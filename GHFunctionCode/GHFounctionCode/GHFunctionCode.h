@@ -17,6 +17,7 @@
 #import "NSArray+GHFunctionCode.h"
 #import "NSDictionary+GHFunctionCode.h"
 #import "NSMutableDictionary+GHFunctionCode.h"
+#import "ReObject.h"
 
 typedef id(^map_blk_t)(id obj);
 typedef id(^reduce_blk_t)(id obj,id obj2);

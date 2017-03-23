@@ -15,6 +15,7 @@
 		2BDFD0921E8470EA0065547C /* NSNumber+GHFuctionCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BDFD0891E8470EA0065547C /* NSNumber+GHFuctionCode.m */; };
 		2BDFD0931E8470EA0065547C /* NSObject+GHFunctionCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BDFD08B1E8470EA0065547C /* NSObject+GHFunctionCode.m */; };
 		2BDFD0941E8470EA0065547C /* NSString+GHFunctionCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BDFD08D1E8470EA0065547C /* NSString+GHFunctionCode.m */; };
+		2BDFD0971E847A3A0065547C /* ReObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BDFD0961E847A3A0065547C /* ReObject.m */; };
 		ECCD3A711E8372160082E3DC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ECCD3A701E8372160082E3DC /* main.m */; };
 		ECCD3A741E8372160082E3DC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ECCD3A731E8372160082E3DC /* AppDelegate.m */; };
 		ECCD3A771E8372160082E3DC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECCD3A761E8372160082E3DC /* ViewController.m */; };
@@ -40,6 +41,8 @@
 		2BDFD08B1E8470EA0065547C /* NSObject+GHFunctionCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+GHFunctionCode.m"; sourceTree = "<group>"; };
 		2BDFD08C1E8470EA0065547C /* NSString+GHFunctionCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+GHFunctionCode.h"; sourceTree = "<group>"; };
 		2BDFD08D1E8470EA0065547C /* NSString+GHFunctionCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+GHFunctionCode.m"; sourceTree = "<group>"; };
+		2BDFD0951E847A3A0065547C /* ReObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReObject.h; sourceTree = "<group>"; };
+		2BDFD0961E847A3A0065547C /* ReObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReObject.m; sourceTree = "<group>"; };
 		ECCD3A6C1E8372160082E3DC /* GHFunctionCode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GHFunctionCode.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECCD3A701E8372160082E3DC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		ECCD3A721E8372160082E3DC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -81,6 +84,8 @@
 				2BDFD08B1E8470EA0065547C /* NSObject+GHFunctionCode.m */,
 				2BDFD08C1E8470EA0065547C /* NSString+GHFunctionCode.h */,
 				2BDFD08D1E8470EA0065547C /* NSString+GHFunctionCode.m */,
+				2BDFD0951E847A3A0065547C /* ReObject.h */,
+				2BDFD0961E847A3A0065547C /* ReObject.m */,
 			);
 			path = GHFounctionCode;
 			sourceTree = "<group>";
@@ -205,6 +210,7 @@
 				2BDFD0901E8470EA0065547C /* NSMutableArray+GHFunctionCode.m in Sources */,
 				ECCD3A711E8372160082E3DC /* main.m in Sources */,
 				2BDFD0911E8470EA0065547C /* NSMutableDictionary+GHFunctionCode.m in Sources */,
+				2BDFD0971E847A3A0065547C /* ReObject.m in Sources */,
 				2BDFD0931E8470EA0065547C /* NSObject+GHFunctionCode.m in Sources */,
 				2BDFD08F1E8470EA0065547C /* NSDictionary+GHFunctionCode.m in Sources */,
 			);

@@ -76,7 +76,7 @@
 {
     __weak dict_t weakself = self;
     BOOL(^has_func)(c_str) = ^BOOL(c_str key){
-        NSString* key_str = [NSString stringWithCString:key encoding:NSUTF8StringEncoding];
+        str_t key_str = [NSString stringWithCString:key encoding:NSUTF8StringEncoding];
         return weakself.allKeys.contains(key_str);
     };
     return [has_func copy];
