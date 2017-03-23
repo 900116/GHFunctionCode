@@ -47,13 +47,14 @@
 
 -(void)testOCType
 {
-    NSArray* arrlist = @[@(1),@(2),@(3),@(4),@(5)];
-    NSArray* maplist = map(^id(NSNumber* obj) {
+    list_t arrlist = @[@(1),@(2),@(3),@(4),@(5)];
+    NSLog(@"%@",sum(arrlist));
+    list_t maplist = map(^id(number_t obj) {
         return [NSString stringWithFormat:@"file_name_%d",[obj intValue]];
     }, arrlist);
     NSLog(@"%@",maplist);
     
-    NSArray* filterlist = filter(^BOOL(NSNumber* obj) {
+    list_t filterlist = filter(^BOOL(number_t obj) {
         return [obj intValue]%2;
     }, arrlist);
     NSLog(@"%@",filterlist);
@@ -63,29 +64,35 @@
     }, arrlist);
     NSLog(@"%@",result);
     
-    NSArray* zip_arr =  zip(@[@"a",@"b",@"c"],@[@(1),@(2),@(3)],nil);
+    str_t joinStr = arrlist.join(",");
+    NSLog(@"%@",joinStr);
+    
+    list_t seplist = joinStr.split(",");
+    NSLog(@"%@",seplist);
+    
+    list_t zip_arr =  zip(@[@"a",@"b",@"c"],@[@(1),@(2),@(3)],nil);
     NSLog(@"%@",zip_arr);
     
-    NSDictionary* dict_value = dict(zip_arr);
+    dict_t dict_value = dict(zip_arr);
     NSLog(@"%@",dict_value);
     
-    NSString* string = str(dict_value);
+    str_t string = str(dict_value);
     NSLog(@"%@",string);
     
-    NSArray* array = list(string);
+    list_t array = list(string);
     NSLog(@"%@",array);
     
-    for (NSNumber* i in range(3)) {
+    for (number_t i in range(3)) {
         NSLog(@"%@",i);
     }
     NSLog(@"\n");
     
-    for (NSNumber* i in range(1,11)) {
+    for (number_t i in range(1,11)) {
         NSLog(@"%@",i);
     }
     NSLog(@"\n");
     
-    for (NSNumber* i in range(5,1,-1)) {
+    for (number_t i in range(5,1,-1)) {
         NSLog(@"%@",i);
     }
     NSLog(@"\n");

@@ -10,20 +10,27 @@
 #define GHFunctionCode_h
 #import <Foundation/Foundation.h>
 #import <CoreFoundation/CoreFoundation.h>
+#import "GHFunctionType.h"
+#import "NSObject+GHFunctionCode.h"
+#import "NSString+GHFunctionCode.h"
+#import "NSMutableArray+GHFunctionCode.h"
+#import "NSArray+GHFunctionCode.h"
+#import "NSDictionary+GHFunctionCode.h"
+#import "NSMutableDictionary+GHFunctionCode.h"
 
 typedef id(^map_blk_t)(id obj);
 typedef id(^reduce_blk_t)(id obj,id obj2);
 typedef BOOL(^filter_blk_t)(id obj);
-static inline NSArray* map(map_blk_t blk,NSArray* arr)
+static inline list_t map(map_blk_t blk,list_t arr)
 {
-    NSMutableArray* temp = [NSMutableArray new];
+    mlist_t temp = [NSMutableArray new];
     for (id obj in arr) {
         [temp addObject:blk(obj)];
     }
     return [temp copy];
 }
 
-static inline id reduce(reduce_blk_t blk,NSArray* arr)
+static inline id reduce(reduce_blk_t blk,list_t arr)
 {
     if (arr.count < 2) {
         assert(@"数组必须有两个元素以上");
@@ -37,9 +44,9 @@ static inline id reduce(reduce_blk_t blk,NSArray* arr)
     return temp;
 }
 
-static inline NSArray* filter(filter_blk_t blk,NSArray* arr)
+static inline list_t filter(filter_blk_t blk,list_t arr)
 {
-    NSMutableArray* temp = [NSMutableArray new];
+    mlist_t temp = [NSMutableArray new];
     for (id obj in arr) {
         if (blk(obj)) {
             [temp addObject:obj];
@@ -48,9 +55,9 @@ static inline NSArray* filter(filter_blk_t blk,NSArray* arr)
     return [temp copy];
 }
 
-static inline NSArray* zip(NSArray* arr,...){
+static inline list_t zip(list_t arr,...){
     va_list args;
-    NSMutableArray* temp = [NSMutableArray new];
+    mlist_t temp = [NSMutableArray new];
     va_start(args, arr);
     for (int i = 0; i < arr.count; ++i) {
         [temp addObject:[NSMutableArray new]];
@@ -68,99 +75,69 @@ static inline NSArray* zip(NSArray* arr,...){
     return temp;
 }
 
-static inline NSString* str(id obj)
-{
-    if ([obj isKindOfClass:[NSDictionary class]]) {
-        NSData * jsonData = [NSJSONSerialization dataWithJSONObject:obj options:0 error:nil];
-        return [[NSString alloc]initWithData:jsonData encoding:NSUTF8StringEncoding];
-    }
-    return [obj description];
+#define CREATE_BASE_TYPE_TRANS_FUNC(type) static inline type type##_(id value){\
+return [value __##type##__]; \
 }
 
-static inline NSDictionary* dict(id obj){
-    if ([obj isKindOfClass:[NSDictionary class]]) {
-        return obj;
-    }
-    if ([obj isKindOfClass:[NSString class]]) {
-        NSData *jsonData = [obj dataUsingEncoding:NSUTF8StringEncoding];
-        NSError *err;
-        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&err];
-        if(err) {
-            return nil;
-        }
-        else
-        {
-            return dict;
-        }
-    }
-    if ([obj isKindOfClass:[NSArray class]]) {
-        NSArray* arr = obj;
-        if (arr.count > 0) {
-            NSArray* subArray = obj[0];
-            if ([subArray isKindOfClass:[NSArray class]]) {
-                if (subArray.count == 2) {
-                    NSMutableDictionary* dict = [NSMutableDictionary new];
-                    for (NSArray* subArray in obj) {
-                        [dict setObject:subArray[1] forKey:subArray[0]];
-                    }
-                    return dict;
-                }
-                return nil;
-            }
-            return nil;
-        }
-        return nil;
-    }
-    return nil;
+CREATE_BASE_TYPE_TRANS_FUNC(int);
+CREATE_BASE_TYPE_TRANS_FUNC(float);
+CREATE_BASE_TYPE_TRANS_FUNC(double);
+CREATE_BASE_TYPE_TRANS_FUNC(long);
+
+#define CREATE_BASE_CONTAINER_TRANS_FUNC(type) static inline type##_t type(id value){\
+return [value __##type##__]; \
 }
 
-static inline NSArray* list(id obj)
+CREATE_BASE_CONTAINER_TRANS_FUNC(list);
+CREATE_BASE_CONTAINER_TRANS_FUNC(str);
+CREATE_BASE_CONTAINER_TRANS_FUNC(dict);
+
+static inline id sum(id obj)
 {
-    if ([obj isKindOfClass:[NSString class]]) {
-        NSString* string = obj;
-        NSMutableArray* array = [NSMutableArray new];
-        for (int i = 0; i < string.length; ++i) {
-            [array addObject:[string substringWithRange:NSMakeRange(i, 1)]];
-        }
-        return array;
-    }
-    if ([obj isKindOfClass:[NSDictionary class]]) {
-        return [obj allKeys];
-    }
-    if ([obj isKindOfClass:[NSArray class]]) {
-        return obj;
-    }
-    return nil;
+    return [obj __sum__];
 }
 
-static inline int int_(id value)
+static inline NSUInteger len(id obj)
 {
-    if ([value respondsToSelector:@selector(intValue)]) {
-        return [value intValue];
-    }
-    return -1;
+    return [obj __len__];
 }
 
-static inline float float_(id value)
+static inline int ord(char x)
 {
-    if ([value respondsToSelector:@selector(floatValue)]) {
-        return [value floatValue];
-    }
-    return -1;
+    return (int)x;
 }
 
-static inline double double_(id value)
+static inline char chr(int x)
 {
-    if ([value respondsToSelector:@selector(doubleValue)]) {
-        return [value doubleValue];
+    return (char)x;
+}
+
+static inline str_t hex(int x)
+{
+    return [NSString stringWithFormat:@"0x%x",x];
+}
+
+static inline str_t oct(int x)
+{
+    return [NSString stringWithFormat:@"0%o",x];
+}
+
+static inline str_t bin(int x)
+{
+    mstr_t string = [@"" mutableCopy];
+    while (x)
+    {
+        [string insertString:(x & 1)? @"1": @"0" atIndex:0];
+        x /= 2;
     }
-    return -1;
+    [string insertString:@"0b" atIndex:0];
+    return [string copy];
 }
 
 
-static inline NSArray* Range_3(int begin,int end,int step)
+static inline list_t Range_3(int begin,int end,int step)
 {
-    NSMutableArray* array = [NSMutableArray new];
+    mlist_t array = [NSMutableArray new];
     int j = begin;
     while (step > 0?j < end:j > end) {
         [array addObject:@(j)];
@@ -175,7 +152,7 @@ static inline NSArray* Range_3(int begin,int end,int step)
     return array;
 }
 
-static inline NSArray* Range_2(int a,int b)
+static inline list_t Range_2(int a,int b)
 {
     int begin = a;
     int end = b;
@@ -184,11 +161,10 @@ static inline NSArray* Range_2(int a,int b)
 }
 
 
-static inline NSArray* Range_1(int a)
+static inline list_t Range_1(int a)
 {
     return Range_2(0,a);
 }
-
 
 #define GET_FUNCTION_NAME(_1,_2,_3,NAME,...) NAME
 #define range(...) GET_FUNCTION_NAME(__VA_ARGS__,Range_3,Range_2,Range_1)(__VA_ARGS__)
