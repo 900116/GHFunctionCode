@@ -93,3 +93,6 @@ obj_t ----> NSObject *
 - map_f_double
 - filter_f_double
 - reduce_f_double
+
+# 语法糖
+- range(int,int,int)->list_t  
