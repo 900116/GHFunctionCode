@@ -34,6 +34,16 @@ PROPER_BLK_GET_IMP(is, BOOL, id, NO)
     return nil;
 }
 
+-(mdict_t)__mdict__
+{
+    return nil;
+}
+
+-(mlist_t)__mlist__
+{
+    return nil;
+}
+
 -(int)__int__
 {
     return (int)self;

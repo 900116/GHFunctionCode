@@ -46,6 +46,15 @@
     return [self allKeys];
 }
 
+-(mdict_t)__mdict__
+{
+    return [self mutableCopy];
+}
+
+-(mlist_t)__mlist__{
+    return [[self __list__] mutableCopy];
+}
+
 -(str_t)__str__
 {
     NSData * jsonData = [NSJSONSerialization dataWithJSONObject:self options:0 error:nil];

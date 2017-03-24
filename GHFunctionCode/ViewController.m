@@ -52,7 +52,7 @@
     
     str = @"i have a dream";
     str = str.title();
-    list_t list = str.split(",");
+    list_t list = str.split(" ");
     NSLog(@"%@",list);
     NSLog(@"%d",str.startswith("I"));
     NSLog(@"%d",str.endswith("Dream"));
@@ -72,15 +72,15 @@
     str_t joinStr = arrlist.join(",");
     NSLog(@"%@",joinStr);
     
-    mlist_t mlist = [arrlist mutableCopy];
-    mlist.append(@(9));
-    mlist.extend(arrlist);
-    mlist.insert(@(22),1);
-    mlist.remove(@(2));
-    mlist.pop();
-    mlist.reverse();
-    mlist.sort(NULL);
-    mlist.swap(3,5);
+    mlist_t ml = mlist(arrlist);
+    ml.append(@(9));
+    ml.extend(arrlist);
+    ml.insert(@(22),1);
+    ml.remove(@(2));
+    ml.pop();
+    ml.reverse();
+    ml.sort(NULL);
+    ml.swap(3,5);
     
     list_t a = @[@(1),@(2),@(3)];
     list_t b = @[@(3),@(5),@(6)];
@@ -92,7 +92,7 @@
 
 -(void)testDict
 {
-    dict_t d = [NSDictionary new];
+    dict_t d = dict(nil);
     dict_t d2 = d.copy_();
     d2 = @{@"a":@(5)};
     BOOL haskey = d2.has_key("a");
@@ -101,7 +101,7 @@
     list_t items = d2.items();
     dict_t d3 = d2.fromkeys(@[@"d",@"e",@"f"],nil);
     
-    mdict_t md = [NSMutableDictionary new];
+    mdict_t md = mdict(nil);
     md[@"hello"] = @"你好";
     md[@"abc"] = @"唉比赛";
     md[@"hey"] = @"嗨";

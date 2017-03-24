@@ -85,13 +85,19 @@ CREATE_BASE_TYPE_TRANS_FUNC(float);
 CREATE_BASE_TYPE_TRANS_FUNC(double);
 CREATE_BASE_TYPE_TRANS_FUNC(long);
 
-#define CREATE_BASE_CONTAINER_TRANS_FUNC(type) static inline type##_t type(id value){\
+#define CREATE_BASE_CONTAINER_TRANS_FUNC(type,d_value) static inline type##_t type(id value){\
+if(!value)\
+{\
+    return d_value;\
+}\
 return [value __##type##__]; \
 }
 
-CREATE_BASE_CONTAINER_TRANS_FUNC(list);
-CREATE_BASE_CONTAINER_TRANS_FUNC(str);
-CREATE_BASE_CONTAINER_TRANS_FUNC(dict);
+CREATE_BASE_CONTAINER_TRANS_FUNC(list,@[]);
+CREATE_BASE_CONTAINER_TRANS_FUNC(str,@"");
+CREATE_BASE_CONTAINER_TRANS_FUNC(dict,@{});
+CREATE_BASE_CONTAINER_TRANS_FUNC(mlist,[NSMutableArray new]);
+CREATE_BASE_CONTAINER_TRANS_FUNC(mdict,[NSMutableDictionary new]);
 
 static inline id sum(id obj)
 {

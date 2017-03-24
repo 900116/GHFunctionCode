@@ -10,6 +10,16 @@
 #import "GHFunctionCode.h"
 
 @implementation NSMutableArray (GHFunctionCode)
+-(mlist_t)__mlist__
+{
+    return self;
+}
+
+-(list_t)__list__
+{
+    return [self copy];
+}
+
 -(void(^)(id))append
 {
     __weak mlist_t weakself = self;

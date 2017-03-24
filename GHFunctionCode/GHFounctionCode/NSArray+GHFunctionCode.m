@@ -15,7 +15,7 @@
 -(id)__add__:(id)value
 {
     if ([value isKindOfClass:[NSArray class]]) {
-        [self arrayByAddingObjectsFromArray:value];
+        return [self arrayByAddingObjectsFromArray:value];
     }
     return [self arrayByAddingObject:value];
 }
@@ -55,6 +55,11 @@
 {
     return self;
 }
+
+-(mlist_t)__mlist__{
+    return [self mutableCopy];
+}
+
 
 -(id)__sum__
 {

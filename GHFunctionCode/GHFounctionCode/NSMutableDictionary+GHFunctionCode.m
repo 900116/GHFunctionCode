@@ -44,6 +44,11 @@
     return [popitem_func copy];
 }
 
+-(mdict_t)__mdict__
+{
+    return self;
+}
+
 -(void (^)(dict_t))update
 {
     __weak mdict_t weakself = self;

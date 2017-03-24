@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2B031EB41E8418A5003CDE8D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B031EB21E8418A5003CDE8D /* Main.storyboard */; };
 		2BDFD08E1E8470EA0065547C /* NSArray+GHFunctionCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BDFD0811E8470EA0065547C /* NSArray+GHFunctionCode.m */; };
 		2BDFD08F1E8470EA0065547C /* NSDictionary+GHFunctionCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BDFD0831E8470EA0065547C /* NSDictionary+GHFunctionCode.m */; };
 		2BDFD0901E8470EA0065547C /* NSMutableArray+GHFunctionCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BDFD0851E8470EA0065547C /* NSMutableArray+GHFunctionCode.m */; };
@@ -20,11 +19,10 @@
 		ECCD3A741E8372160082E3DC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ECCD3A731E8372160082E3DC /* AppDelegate.m */; };
 		ECCD3A771E8372160082E3DC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECCD3A761E8372160082E3DC /* ViewController.m */; };
 		ECCD3A7C1E8372160082E3DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECCD3A7B1E8372160082E3DC /* Assets.xcassets */; };
-		ECCD3A7F1E8372160082E3DC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECCD3A7D1E8372160082E3DC /* LaunchScreen.storyboard */; };
+		ECCD3A8E1E84B2F60082E3DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECCD3A8D1E84B2F60082E3DC /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2B031EB31E8418A5003CDE8D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2BDFD07E1E8470EA0065547C /* GHFunctionCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHFunctionCode.h; sourceTree = "<group>"; };
 		2BDFD07F1E8470EA0065547C /* GHFunctionType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHFunctionType.h; sourceTree = "<group>"; };
 		2BDFD0801E8470EA0065547C /* NSArray+GHFunctionCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+GHFunctionCode.h"; sourceTree = "<group>"; };
@@ -50,8 +48,8 @@
 		ECCD3A751E8372160082E3DC /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		ECCD3A761E8372160082E3DC /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		ECCD3A7B1E8372160082E3DC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		ECCD3A7E1E8372160082E3DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ECCD3A801E8372160082E3DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ECCD3A8D1E84B2F60082E3DC /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,15 +108,14 @@
 			isa = PBXGroup;
 			children = (
 				2BDFD07D1E8470EA0065547C /* GHFounctionCode */,
-				2B031EB21E8418A5003CDE8D /* Main.storyboard */,
 				ECCD3A721E8372160082E3DC /* AppDelegate.h */,
 				ECCD3A731E8372160082E3DC /* AppDelegate.m */,
 				ECCD3A751E8372160082E3DC /* ViewController.h */,
 				ECCD3A761E8372160082E3DC /* ViewController.m */,
 				ECCD3A6F1E8372160082E3DC /* Supporting Files */,
 				ECCD3A7B1E8372160082E3DC /* Assets.xcassets */,
-				ECCD3A7D1E8372160082E3DC /* LaunchScreen.storyboard */,
 				ECCD3A801E8372160082E3DC /* Info.plist */,
+				ECCD3A8D1E84B2F60082E3DC /* Main.storyboard */,
 			);
 			path = GHFunctionCode;
 			sourceTree = "<group>";
@@ -189,8 +186,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2B031EB41E8418A5003CDE8D /* Main.storyboard in Resources */,
-				ECCD3A7F1E8372160082E3DC /* LaunchScreen.storyboard in Resources */,
+				ECCD3A8E1E84B2F60082E3DC /* Main.storyboard in Resources */,
 				ECCD3A7C1E8372160082E3DC /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -217,25 +213,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		2B031EB21E8418A5003CDE8D /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2B031EB31E8418A5003CDE8D /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		ECCD3A7D1E8372160082E3DC /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				ECCD3A7E1E8372160082E3DC /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		ECCD3A811E8372160082E3DC /* Debug */ = {
